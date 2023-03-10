@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home_css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/home_css/responsive.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="content">
+
+    <!-- SECTION 1 - HEADER -->
+    <div class="container-fluid my-5">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-5 video-container ipad">
+                <video autoplay muted loop class="vid1 vid1-1">
+                    <source src="{% static 'images/rtfkt video.mp4' %}" type="video/mp4">
+                </video>
+                <div class="text-container" id="text1">
+                    <h2>Where style meets innovation</h2>
+                    <p>Experience the Next Level of Streetwear</p>
+                    <a href="{% url 'products' %}"><button class="button2">SHOP NOW</button></a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-7 px-0 ipad">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'images/animation2.png' %}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'images/animation3.png' %}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-7 px-0 hide">
+                <img src="{% static 'images/animation4.png' %}" class="img-fluid" alt="" />
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 video-container hide">
+                <video autoplay muted loop class="vid1 vid1-2">
+                    <source src="{% static 'images/rtfkt video1.mp4' %}" type="video/mp4">
+                </video>
+                <div class="text-container" id="text2">
+                    <h2>Stand out from the crowd</h2>
+                    <p>Push the Boundaries of Streetstyle</p>
+                    <a href="{% url 'products' %}"><button class="button2">SHOP NOW</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section-2-container">
+        <div class="section-2-header">
+            <div class="section-2-title">
+                <h3>Popular / New Arrivals</h3>
+            </div>
+            <div class="section-2-buttons">
+                <button class="prev-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="next-btn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="section-2-cards">
+            <ul class="cards-list">
+
+                {% for product in products|slice:"0:8" %}
+                <li class="card-nr">
+                    <div class="product">
+                        <a href="../product/{{product.product_id}}" target="_blank">
+                            <img src="{{product.product_image.url}}">
+
+                            <div class="section-2-product-description">
+                                <div class="section-2-product-name">
+                                    <h5>{{product.product_name}}</h5>
+                                    <p>{{product.product_category}}</p>
+                                </div>
+                                <p class="section-2-product-price">${{product.product_price}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="sections-headers">
+        <h1>THE NEXT GENERATION SNEAKERS</h1>
+        <p>Unlock the Future of Streetwear!</p>
+    </div>
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="{% static 'images/rtfktmain.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="section-6-cards">
+        <h4>Jordan Style</h4>
+        <ul>
+            <li>
+                <a href="/products/?brands=3">
+                    <img src="{% static 'images/jordan-clothing.webp' %}">
+                    <p>Jordan Hoodie</p>
+                </a>
+            </li>
+            <li>
+                <a href="/products/?brands=3">
+                    <img src="{% static 'images/jordan-classic.webp' %}">
+                    <p>Jordan Classics</p>
+                </a>
+            </li>
+            <li>
+                <a href="/products/?brands=3">
+                    <img src="{% static 'images/jordan-clothing-1.webp' %}">
+                    <p>Jordan Essentials</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECTION-4 -->
+    <h4 class="offers-header">Latest Offers</h4>
+    <div class="offers">
+        <div class="offer1">
+            <div class="offer-text">
+                <h3>UP TO 40% DISCOUNT</h3>
+                <p>Don't miss it!</p>
+                <a href="{% url 'products' %}"><button>Buy now</button></a>
+            </div>
+        </div>
+        <div class="offer2">
+            <div class="offer-text">
+                <h3>UP TO 20% DISCOUNT</h3>
+                <p>Few Days Left!</p>
+                <a href="{% url 'products' %}"><button>Buy now</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="sections-headers">
+        <h2>NEW COLLECTION</h2>
+        <p>Discover the latest trends!</p>
+    </div>
+    <div class="new-collection">
+        <a href="/products/?genders=2" class="new-collection-1"></a>
+        <a href="/products/?genders=2" class="new-collection-2"></a>
+    </div>
+
+    <div class="banner">
+        <h1>Where style meets innovation!</h1>
+    </div>
+
+{% endblock %}
+</div>
+
+{% block style1 %}
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+{% endblock %}

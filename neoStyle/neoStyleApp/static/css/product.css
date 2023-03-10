@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Fjalla+One&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2 ,h3 ,h4 {
+    font-family: 'Helvetica', sans-serif;
+    color: #111;
+}
+
+/* SECTION 1 */
+
+.card-wrapper {
+    max-width: 95vw;
+    margin: 3rem auto;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.img-display {
+    overflow: hidden;
+}
+
+.img-show {
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.img-show img {
+    min-width: 100%;
+}
+
+.img-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.img-item{
+    width: calc(25% - 0.25rem)
+}
+
+.img-item:hover {
+    opacity: 0.8;
+}
+
+/* SECTION 2 */
+
+.product-content {
+    padding: 2rem 1rem;
+}
+
+.product-title {
+    font-weight: 400;
+    position: relative;
+    margin: 1rem 0;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.last-price {
+    color: #f64749;
+    text-decoration: line-through;
+}
+
+.product-details p {
+    opacity: 0.8;
+}
+
+.product-details ul {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    padding-left: 0;
+}
+
+.product-details ul li {
+    margin: 0;
+    list-style: none;
+    background: url("/static/images/check-mark.png") left center no-repeat;
+    background-size: 1rem;
+    padding-left: 1.7rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.product-details ul li span {
+    font-weight: 400;
+}
+
+.purchase-info {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.purchase-info .btn {
+    border-radius: 1.5rem;
+    text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    width: 15rem;
+    cursor: pointer;
+    color: #fff;
+    background-color: #222;
+    transition: all 0.5s ease;
+}
+
+.purchase-info .btn:hover {
+    opacity: 0.8;
+}
+
+.store-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: inline-block;
+    background: #222;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    transition: all 0.5s ease;
+}
+
+.store-link:hover {
+    opacity: 0.8;
+}
+
+.size{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.size-button {
+    background-color: #f3f3f3;
+    border: none;
+    color: #111;
+    padding: 1.1rem 1.1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.3rem 0.15rem;
+    cursor: pointer;
+}
+  
+.size-button.active {
+    background-color: #111;
+    color: white;
+}
+
+/* RESPONSIVE */
+
+@media screen and (min-width: 992px) {
+    .card-contain {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+
+    .card-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-imgs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .product-content {
+        padding-top: 0;
+    }
+}

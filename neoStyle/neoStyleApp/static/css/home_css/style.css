@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Fjalla+One&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Fjalla One', sans-serif;
+    color: #000;
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.sections-headers {
+    margin: 3rem 0 3rem;
+    text-align: center;
+}
+
+.sections-headers p {
+    font-size: 1.3rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #111;
+}
+
+p {
+    color: #222;
+}
+
+/* Animations */
+
+.vid1-1 {
+    animation: slideFromLeft 2.5s ease-in-out forwards;
+}
+
+#text1 {
+    animation: slideFromLeft 1s ease-in-out forwards;
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* #text2 {
+    animation: slideFromRight 1.5s ease-in-out forwards;
+} */
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* SECTION 1 */
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel,
+.carousel-inner {
+    height: 100%;
+}
+
+.img-fluid {
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-container {
+    position: relative;
+    padding: 0;
+}
+
+#text1 {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1;
+}
+
+#text2 {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    text-align: right;
+    z-index: 1;
+}
+
+.vid1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-container h2 {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.text-container p {
+    font-size: 1.1rem;
+}
+
+.button2 {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    width: 9rem;
+    height: 2.2rem;
+    background-color: #222;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    transition: 0.3s ease;
+    letter-spacing: 0.125rem;
+}
+
+.button2:hover {
+    background-color: #333;
+
+}
+
+/* SECTION 2 */
+
+.section-2-container img {
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+}
+
+.section-2-container {
+    margin: 5rem 4rem;
+}
+
+.section-2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.prev-btn,
+.next-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    margin-left: 0.5rem;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: rgb(202, 200, 200);
+}
+
+.section-2-cards {
+    overflow: hidden;
+}
+
+.section-2-cards ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.section-2-cards a {
+    text-decoration: none;
+}
+
+.cards-list {
+    transition: 0.8s ease-in-out;
+}
+
+.card-nr {
+    width: 25rem;
+}
+
+.section-2-product-description {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards-list {
+    display: flex;
+    gap: 1rem;
+}
+
+.section-2-container ::-webkit-scrollbar {
+    height: 0.5rem;
+    overflow: hidden;
+}
+
+.section-2-cards:hover {
+    overflow-x: scroll;
+}
+
+.section-2-container ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0.35rem;
+}
+
+.section-2-container ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* SECTION 3 */
+
+.video-section {
+    margin-top: 1rem;
+    width: 100%;
+    height: 570px;
+}
+
+.video-section video {
+    width: 100%;
+    height: 570px;
+    object-fit: cover;
+}
+
+/* SECTION 4 */
+
+.offers-header {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.offers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
+}
+
+.offer1,
+.offer2 {
+    width: 50%;
+    height: 390px;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer1 {
+    background-image: url("/static/images/offers.jpg");
+}
+
+.offer2 {
+    background-image: url("/static/images/offers1.jpg");
+}
+
+.offer-text {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position: absolute;
+    backdrop-filter: blur(0.65rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0s ease-in-out;
+
+}
+
+.offer2:hover .offer-text,
+.offer1:hover .offer-text {
+    right: 0;
+}
+
+.offer-text h3 {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.offer-text p {
+    color: #222;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.offers button {
+    height: 2.5rem;
+    width: 9.5rem;
+    border: none;
+    background-color: #111;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* SECTION 5 */
+.new-collection {
+    display: flex;
+    margin: 0 2rem;
+}
+
+.new-collection-1 {
+    background-image: url("/static/images/both1.webp");
+    width: 50%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.new-collection-2 {
+    background-image: url("/static/images/both3.webp");
+    width: 50%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* SECTION 6 */
+
+.section-6-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5rem 2rem 3rem;
+    font-size: 1.2rem;
+}
+
+.section-6-cards ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0;
+    margin-top: 1.5rem;
+}
+
+.section-6-cards img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.section-6-cards li {
+    width: 33%;
+    height: auto;
+}
+
+.section-6-cards a {
+    text-decoration: none;
+}
+
+/* BANNER */
+.banner {
+    background-color: rgb(15, 15, 15);
+    width: 100%;
+    margin: 5rem 0;
+}
+
+.banner>h1 {
+    text-align: center;
+    padding: 3rem 2rem;
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: 2px;
+}

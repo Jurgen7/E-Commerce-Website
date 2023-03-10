@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <div class="footer-column">
+                <h5>NEOSTYLE</h5>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'products' %}" target="_blank">Shop</a></li>
+                    <li><a href="/products/?filters=6" target="_blank">SNKRS</a></li>
+                    <li><a href="/products/?brands=1" target="_blank">RTFKT</a></li>
+                    <li><a href="/products/?brands=3" target="_blank">Jordan</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>ABOUT</h5>
+                <ul>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li>FAQs</a></li>
+                    <li>Pricing</a></li>
+                    <li>Offers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>HELP</h5>
+                <ul>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li>Shipping and Delivery</a></li>
+                    <li>Returns</a></li>
+                    <li>Payment Options</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-newsletter">
+            <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
+            <p>Sign up to be informed on our latest collections, drops and restocks.</p>
+
+            {% if messages %}
+            {% for message in messages %}
+                <div {% if message.tags %}  class="{{ message.tags}}" {% endif %} role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+            {% else %}
+            <form method="post" id="newsletter-form" action="{% url 'newsletter_signup' %}">
+                {% csrf_token %}
+                {{ form }}
+
+                <button class="footer-button" type="submit">Subscribe</button>
+            </form>
+            {% endif %}
+            
+            <ul>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+            </ul>
+        </div> 
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 NeoStyle, Inc. All rights reserved.</p>
+    </div>
+</footer>   

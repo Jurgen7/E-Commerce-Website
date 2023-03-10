@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Fjalla+One&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #798da3;
+}
+
+h1,
+h2,
+h3, 
+h4,
+h5 {
+    font-family: 'Helvetica';
+    letter-spacing: 1px;
+    color: #222;
+    font-weight: 500;
+}
+
+/* SECTION ONE */
+
+.section-one {
+    width: 100%;
+    height: 15.6rem;
+    background-color: #edf0f4;
+    text-align: center;
+    vertical-align: auto;
+    padding-top: 3rem;
+    font-size: 1.1rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.box {
+    width: 25rem;
+    height: 12.5rem;
+    border: 2px solid #c9d3dd;
+    transform: translate(0px, -3.75rem);
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1.5rem 3rem;
+    text-align: center;
+}
+
+.box:hover{
+    border: 1px solid #3b4754 ;
+}
+
+.description {
+    font-size: 0.95rem;
+}
+
+.phone {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Button */
+.buttons {
+    font-size: 0.68rem;
+    width: 8.75rem;
+    height: 2.2rem;
+    padding: 0 0.625rem;
+    background-color: transparent;
+    border: none;
+    color: #3b4754;
+    border-radius: 2px;
+    border: 1px solid #3b4754;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.buttons::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+.buttons:hover{
+    color: white;
+}
+
+.buttons:hover::before {
+    transform: translateX(0);
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color: #798da3;
+}
+
+a:hover {
+    color: #111;
+}
+
+/* SECTION TWO */
+
+.section-two {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 3rem 3rem;
+    gap: 2rem;
+}
+
+.location {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
+    padding-left: 3rem;
+}
+
+.location h2 {
+    margin-bottom: 3rem;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.address-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem; 
+}
+
+.socials a{
+    transition: 0.5s;
+}
+
+.socials a:hover {
+    transform: translateY(-0.8rem);
+}
+
+.map {
+    width: 60%;
+}
+
+#google-map {
+    width: 100%;
+    height: 70vh;
+}
+
+/* SECTION THREE */
+
+.section-three {
+    background-color: #edf0f4;
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2rem;
+}
+
+.section-three-header {
+    text-align: center;
+}
+
+.message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width:50%;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    height: 2.25rem;
+    padding: 0 0.625rem;
+    border-radius: 0.4rem;
+    border: 1px solid #c9d3dd;
+    outline: none;
+}
+
+input:focus, #message:focus{
+   border: 1px solid #111;
+}
+
+.message-label, .message-field {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#message {
+    width: 100%;
+    height: 10rem;
+    outline: none;
+    border-radius: 0.4rem;
+    border: 1px solid #c9d3dd;
+    font-size: 1rem;
+    padding: 0.6rem;
+}
+
+.message-btn {
+    font-size: 0.75rem;
+    width: 7.5rem;
+    border-radius: 0.4rem;
+    margin: 0 auto;
+}
+
+.msg-details {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.message-label{
+    width: 50%;
+}
+
+/* SECTION FOUR */
+
+.section-four {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.local-calls {
+    display: flex;
+    gap: 10rem;
+}
+
+.local-call {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width:799px) {
+
+    /* Section 1 */
+    .box-container {
+        flex-direction: column;
+    }
+
+    .section-one .paragraph {
+        margin: auto 1rem;
+    }
+
+    /* Setion 2 */
+    .location {
+        gap: 3rem;
+    }
+
+    /* Section 3 */
+    .message-form {
+        width: 85%;
+    }
+
+    /* Section 4 */
+    .local-calls {
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:799px) and (min-width:682px){
+    #google-map{
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width:682px){
+        /* Section 2 */
+        .section-two {
+            flex-direction: column;
+            margin-top: 0;
+        }
+    
+        .section-two{
+            align-items: flex-start;
+        }
+    
+        .map{
+            width: 100%;
+        }
+    
+        #google-map {
+            width: 100%;
+            height: 50vh;
+        }
+    
+        .location{
+            gap:2rem;
+            width: 100%;
+            padding-left: 0;
+        }
+}
+
+@media screen and (max-width:576px) {
+
+    /* Section 1 */
+    .box {
+        width: 18rem;
+        height: 10rem;
+        gap: 0.4rem;
+        padding: 0 1rem;
+    }
+
+    .box-container h5 {
+        font-size: 1rem;
+    }
+
+    .box-container .paragraph {
+        font-size: 0.85rem;
+    }
+
+    /* Section 3 */
+    .message-form {
+        width: 80%;
+    }
+
+    .msg-details {
+        flex-direction: column;
+    }
+
+    .message-label {
+        width:100%;
+    }
+
+    /* Section 4 */
+    .local-calls {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .paragraph{
+       margin: auto 1rem;  
+    }
+
+    .description{
+        font-size: 0.75rem;
+    }
+}
+
+
+
+

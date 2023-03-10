@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Cart {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="content">  
+	<section class="h-100 gradient-custom">
+		<div class="container py-5">
+			<div class="row d-flex justify-content-center my-4">
+				<div class="col-md-8">
+					<div class="card mb-4">
+						<div class="card-header py-3">
+							<h5 class="mb-0">Cart - {{order.get_cart_items}} items</h5>
+						</div>
+
+						{% for item in items %}
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+									<!-- Image -->
+									<div class="bg-image hover-overlay hover-zoom ripple rounded"
+										data-mdb-ripple-color="light">
+										<img src="{{item.product.product_image.url}}" class="w-100" />
+									</div>
+								</div>
+
+								<div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+									<h5>{{item.product.product_name}}</h5>
+									<p>Color: {% for color in item.product.product_color.all %} {{color.color_name}} {% endfor %}</p>
+									<p>Size: <span id="selected-size"></span></p>
+								</div>
+
+								<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+									<!-- Quantity -->
+									<div class="d-flex mb-4">
+										<button data-product={{item.product_id}} data-action="remove" class="btn btn-primary px-3 me-2 btn-count update-cart" >
+											<i class="fas fa-minus"></i>
+										</button>
+
+										<div class="form-outline">
+											<input id="form1" min="0" name="quantity" value="{{item.quantity}}"
+												type="number" class="form-control" />
+											<label class="form-label" for="form1">Quantity</label>
+										</div>
+
+										<button data-product={{item.product_id}} data-action="add" class="btn btn-primary px-3 ms-2 btn-count update-cart">
+											<i class="fas fa-plus"></i>
+										</button>
+									</div>
+
+									<!-- Price -->
+									<p class="text-start text-md-center bold-titles"> $ {{item.product.product_price}} </p>
+									<!-- <p class="text-start text-md-center bold-titles"> $ {{item.get_total}} </p> -->
+								</div>
+							</div>
+							<hr class="my-4" />
+						</div>
+						{% endfor %}
+					
+					</div>
+
+					<!-- SHIPPING -->
+
+					<div class="card mb-4">
+						<div class="card-body">
+							<p class="bold-titles"> Expected shipping delivery </p>
+							<p class="mb-0">3-5 Bussines Days</p>
+						</div>
+					</div>
+
+					<!-- CARDS -->
+
+					<div class="card mb-4 mb-lg-0">
+						<div class="card-body">
+							<p class="bold-titles"> We accept </p>
+							<i class="fa-brands fa-cc-visa credit"></i>
+							<i class="fa-brands fa-cc-mastercard credit"></i>
+							<i class="fa-brands fa-cc-paypal credit"></i>
+							<i class="fa-brands fa-cc-amex credit"></i>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- CHECKOUT -->
+
+				<div class="col-md-4">
+					<div class="card mb-4">
+						<div class="card-header py-3">
+							<h5 class="mb-0">Summary</h5>
+						</div>
+						<div class="card-body">
+							<ul class="list-group list-group-flush">
+								<li
+									class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+									Products
+									<span>${{order.get_cart_total}}</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
+									Shipping
+									<span>Free</span>
+								</li>
+								<li
+									class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+									<div class="bold-titles">
+										Total amount
+										<p class="mb-0">(Including VAT)</p>
+									</div>
+									<span class="bold-titles">${{order.get_cart_total}}</span>
+								</li>
+							</ul>
+
+							<a href="{% url 'checkout' %}"><button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+{% endblock %}
+</div>
+
+{% block style1 %}
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+{% endblock %}
+
+
+
+	
+	    

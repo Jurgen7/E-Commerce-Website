@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+
+<section id="header">
+    <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" id="logo"></a>
+
+    <div id="nav">
+        <ul id="navbar">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'products' %}">Shop</a>
+                <div id="dropdown-menu">
+                    <div class="dropdown-list">
+                        {% for brand in brands %}
+                        <a href="/products/?brands={{ brand.brand_id }}">{{ brand.brand_name }}</a>
+                        {% endfor%}
+                    </div>
+                    <div class="dropdown-list">
+                        {% for filter in filters %}
+                        <a href="/products/?filters={{ filter.filter_id }}">{{ filter.filter_name }}</a>
+                        {% endfor%}
+                    </div>
+                    <div class="dropdown-list">
+                        {% for gender in genders %}
+                        <a href="/products/?genders={{ gender.gender_id }}">{{ gender.gender_name }}</a>
+                        {% endfor%}
+                    </div>
+                </div>
+            </li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+ 
+            <a href="#"><i class="fa-solid fa-x" id="close"></i></a>
+        </ul>
+    </div>
+
+    <!-- Login / SignUp -->
+
+    <div class="login-block">
+        <div class="gap-2">
+            {% if user.is_authenticated %}
+                {{user.username}} | <a href="{% url 'logout' %}" class="btn btn-dark register-btns"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-dark register-btns"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                <a href="{% url 'register' %}" class="btn btn-dark register-btns"><i class="fa-solid fa-user-plus"></i></a>
+            {% endif  %} 
+        </div>
+        <a href="{% url 'cart' %}">
+            <div class="cart-tot">
+                <i class="fa-solid fa-bag-shopping" id="cart-icon"></i>
+                <span id="cart-total">{{ cartItems }}</span>
+            </div>
+        </a>
+        <i class="fa-solid fa-outdent" id="bar"></i>
+    </div>
+</section>

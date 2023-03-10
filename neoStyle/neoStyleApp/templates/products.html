@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Products {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content">  
+    <div class="banner"></div>
+
+    <div class="categories-header">
+        <h3>Products</h3>
+        <button class="filters-btn">
+            <span>Filters</span>
+            <i class="fa-solid fa-filter filter-icon"></i>
+        </button>
+    </div>
+
+    <div class="big-container">
+
+        <div class="categories-section">
+            <div class="first-col">
+                <a href="{% url 'products' %}">All</a>
+                {% for filter in filters %}
+                <a href="/products/?filters={{ filter.filter_id }}">{{ filter.filter_name }}</a>
+                {% endfor%}
+            </div>
+
+            <hr>
+
+            <div class="filters">
+                <i class="fa-solid fa-x close-btn"></i>
+                <div class="brand">
+                    <span>Brand</span>
+                    <div class="section">
+                        {% for brand in brands %}
+                        <div class="form-check">
+                            <input class="form-check-input checkbx brand-checkbx" type="checkbox" value="{{ brand.brand_id }}" 
+                            id="brand-checkbox-{{ brand.brand_id }}">
+                            <label class="form-check-label" for="brand-checkbox-{{ brand.brand_id }}">{{ brand.brand_name }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="gender">
+                    <span>Gender</span>
+                    <div class="section">
+                        {% for gender in genders %}
+                        <div class="form-check">
+                            <input class="form-check-input checkbx gender-checkbx" type="checkbox" value="{{ gender.gender_id }}" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">{{gender.gender_name}}</label>
+                        </div>
+                        {% endfor %}                
+                    </div> 
+                </div>
+
+                <hr>
+
+                <div class="price">
+                    <span>Shop By Price</span>
+                    <form method="get" action="{% url 'products' %}" class="filter-price">
+                        <input type="number" name="min_price" placeholder="Min price $" class="input">
+                        <input type="number" name="max_price" placeholder="Max price $" class="input">
+                        <button type="submit">Filter</button>
+                    </form>  
+                </div>
+            </div>
+        </div>
+
+        <div class="products">
+            {% for product in products %}
+            <div class="product">
+                <a href="../product/{{product.product_id}}">
+                    <img src="{{product.product_image.url}}">
+                    <div class="product-description">
+                        <div class="product-name">
+                            <h6>{{product.product_name}}</h6>
+                            <p>{{product.product_category}}</p>
+                        </div>
+                        <span class="product-price">${{product.product_price}}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="paginator">
+        <span class="step-links pagination">
+            {% if products.has_previous %}
+                <a href="?page=1" class="page-link">&laquo; first</a>
+                <a href="?page={{ products.previous_page_number }}" class="page-link">previous</a>
+            {% endif %}
+
+            <span class="current-page" class="page-link">
+                Page {{ products.number }} of {{ products.paginator.num_pages }}
+            </span>
+
+            {% if products.has_next %}
+                <a href="?page={{ products.next_page_number }}" class="page-link">next</a>
+                <a href="?page={{ products.paginator.num_pages }}" class="page-link">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
+</div>
+
+{% block style1 %}
+<script type="text/javascript" src="{% static 'js/products.js' %}"></script>
+{% endblock %}

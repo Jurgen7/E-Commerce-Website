@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Fjalla+One&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn {
+  background-color: #111;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.btn-count {
+  height: 2.5rem;
+}
+
+#form1 {
+  height: 2.5rem;
+  width: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+#form1:focus {
+  box-shadow: none;
+  border: 1px solid #111;
+}
+
+.d-flex {
+  justify-content: center;
+}
+
+.bold-titles {
+  font-weight: 600;
+}
+
+.credit {
+  font-size: 2rem;
+  color: black;
+}
+
+.card-header {
+  background-color:#222;
+  color: white;
+}
+
+.card {
+  box-shadow:hsl(0, 0%, 80%) 0 0 1rem;
+}

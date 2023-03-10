@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Contact {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- SECTION ONE -->
+<div class="content">  
+    <div class="section-one">
+        <h3>Reach Our Team</h3>
+        <p class="paragraph">We love questions and feedback - and we're always happy to help!<br>
+            Here are some ways to contact us!</p>
+    </div>
+    <div class="box-container">
+        <div class="box">
+            <h5>Talk To Sales</h5>
+            <p class="description">Chat with our sales team to discover how
+                our products can work the best.</p>
+            <div class="phone">
+                <i class="fa-solid fa-phone"></i><span>+355 68 010 01 01</span>
+            </div>
+        </div>
+        <div class="box">
+            <h5>Talk Customer Support</h5>
+            <p class="description">We are waiting to help you and your team
+                so don't hesitate ro reach out.</p>
+            <a href="https://mail.google.com/mail/u/0/" target="_blank"><button class="contact-btn buttons">Contact Support</button></a>
+        </div>
+    </div>
+
+    <!-- SECTION TWO -->
+
+    <div class="section-two">
+        <div class="location">
+            <div>
+                <h2>Headquarters</h2>
+
+                <div class="address">
+                    <h5>Tirana, Albania</h5>
+                    <a href="https://www.google.com/maps/place/Rruga+Myslym+Shyri,+Tiran%C3%AB/@41.3248166,19.812094,17z/data=!3m1!4b1!4m5!3m4!1s0x13503106ce23ca25:0xefa6e52c8c15678f!8m2!3d41.3248166!4d19.812094"
+                        class="address-icons" target="_blank">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>1004, Rruga "Myslym Shyri", 101</span>
+                    </a>
+                    <a href="https://mail.google.com/mail/u/0/" class="address-icons" target="_blank">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>contact-us@neostyle.com</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.google.android.dialer&hl=en&gl=US" class="address-icons" target="_blank">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+355 68 010 01 02</span>
+                    </a>
+                </div>
+            </div>
+            <div class="socials">
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.2663787345623!2d19.809905314794708!3d41.32482060783555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503106ce23ca25%3A0xefa6e52c8c15678f!2sRruga%20Myslym%20Shyri%2C%20Tiran%C3%AB%2C%20Albania!5e0!3m2!1sen!2s!4v1673636413785!5m2!1sen!2s"
+                id="google-map" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- SECTION THREE -->
+
+    <div class="section-three">
+        <div class="section-three-header">
+            <h3>Send Us a Message</h3>
+            <p class="paragraph">Send us a message and we will respond within 24 hours.</p>
+        </div>
+
+        <form method="POST" class="message-form" >
+            {% csrf_token %}
+
+            <div class="msg-details">
+                <div class="message-label">
+                    <label for="name">Name</label>
+                    <input type="text" name="firstName" id="name" placeholder="Your name" >
+                </div>
+                <div class="message-label">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" placeholder="name@example.com" >
+                </div> 
+            </div>
+            <div class="message-field">
+                <label for="message">Message</label>
+                <textarea name="sms" id="message" ></textarea>
+            </div>
+
+            <button class="message-btn buttons">Send</button>
+        </form>
+        <!-- {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'contact' %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %} -->
+    </div>
+
+    <!-- SECTION FOUR -->
+
+    <div class="section-four">
+        <h3>Prefer a Local Sales Call?</h3>
+        <div>
+            <p class="paragraph">Call any of these numbers to reach a member of our global team.</p>
+            <p class="paragraph">We'd love to hear from you.</p>
+        </div>
+        <div class="local-calls">
+            <div class="local-call">
+                <h4>Berlin</h4>
+                <span>+49 171 17171717</span>
+            </div>
+            <div class="local-call">
+                <h4>Vienna</h4>
+                <span>+43 172 18181818</span>
+            </div>
+            <div class="local-call">
+                <h4>Amsterdam</h4>
+                <span>+31 173 19191919</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</div>
+
+{% block style1 %}
+<script type="text/javascript" src="{% static 'js/contact.js' %}"></script>
+{% endblock %}

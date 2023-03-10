@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Product {% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="content">  
+    <div class="card-wrapper">
+        <div class="card-contain">
+            <!-- left -->
+            <div class="product-imgs">
+                <div class="img-display">
+                    <div class="img-show">
+                        <img src="{{product.product_image.url}}" alt="football-shoes">
+                        <img src="{{product.product_image2.url}}" alt="football-shoes">
+                        <img src="{{product.product_image3.url}}" alt="football-shoes">
+                        <img src="{{product.product_image4.url}}" alt="football-shoes">
+                    </div>
+                </div>
+                <div class="img-select">
+                    <div class="img-item">
+                        <a href="#" data-id="1">
+                            <img src="{{product.product_image.url}}" alt="football-shoes">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="2">
+                            <img src="{{product.product_image2.url}}" alt="football-shoes">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="3">
+                            <img src="{{product.product_image3.url}}" alt="football-shoes">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="4">
+                            <img src="{{product.product_image4.url}}" alt="football-shoes">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- right -->
+            <div class="product-content">
+                <h2 class="product-title">{{product.product_name}}</h2>
+                <p>{{product.product_category}}</p>
+
+                <div class="product-price">
+                    <p class="new-price">${{product.product_price}}</p>
+                </div>
+                
+                <div class="product-details">
+                    <h4>About this item: </h4>
+                    <p>{{product.product_description}}</p>
+                    <ul>
+                        <li>Color: <span>{% for color in product.product_color.all %} {{color.color_name}} {% endfor %}</span></li>
+                        <li>Available: <span>In stock</span></li>
+                        <li>Shipping Area: <span>All over the world</span></li>
+                        <li>Shipping Fee: <span>Free</span></li>
+                    </ul>
+
+                    <div>
+                        <p>Select your preferred size:</p>
+                        <div class="size">
+                            {% for size in product.product_size.all %}
+                                <button onclick="selectSize('{{size.size_name}}')" class="size-button" value="{{size.size_name}}">{{size.size_name}}</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="purchase-info">
+                    <button data-product={{product.product_id}} data-action="add" class="btn update-cart">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <a href="{% url 'products' %}" class="store-link">Visit Our Store</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</div>
+
+{% block style1 %}
+<script type="text/javascript" src="{% static 'js/product.js' %}"></script>
+{% endblock %}
