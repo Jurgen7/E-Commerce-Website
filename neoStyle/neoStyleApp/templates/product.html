@@ -69,7 +69,7 @@
                         <p>Select your preferred size:</p>
                         <div class="size">
                             {% for size in product.product_size.all %}
-                                <button onclick="selectSize('{{size.size_name}}')" class="size-button" value="{{size.size_name}}">{{size.size_name}}</button>
+                                <button class="size-button" value="{{size.size_name}}">{{size.size_name}}</button>
                             {% endfor %}
                         </div>
                     </div>
