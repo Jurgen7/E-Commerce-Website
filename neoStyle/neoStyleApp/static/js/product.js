@@ -30,11 +30,10 @@ sizeButton.forEach(button => {
   });
 });
 
-// SIZE
 
-function selectSize(size) {
-    localStorage.setItem('selectedSize', size);
-}
+// function selectSize(size) {
+//     localStorage.setItem('selectedSize', size);
+// }
 
 
 
