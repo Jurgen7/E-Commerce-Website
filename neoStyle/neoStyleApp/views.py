@@ -29,7 +29,6 @@ from django.http import HttpResponse
 def home_view(request):
     products = Product.objects.all().order_by("-product_id")
 
-    # Cart Update/ Cart-Nr in Nav
     data = cartData(request)
     cartItems = data['cartItems'] 
 
@@ -70,10 +69,6 @@ def contact_view(request):
 def products_view(request):
     products = Product.objects.all()
 
-    # filters = Filter.objects.all()
-    # brands = Brand.objects.all()
-    # genders = Gender.objects.all()
-
     filter_id = request.GET.get('filters')
     brand_id = request.GET.get('brands')
     gender_id = request.GET.get('genders')
@@ -96,7 +91,6 @@ def products_view(request):
     paginator = Paginator(products, 9) # 9 products per page
     page = request.GET.get('page')
     products = paginator.get_page(page)
-    # 
 
     data = cartData(request)
     cartItems = data['cartItems']
@@ -172,7 +166,6 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
-
 
 def processOrder(request):
     transaction_id = datetime.datetime.now().timestamp()
