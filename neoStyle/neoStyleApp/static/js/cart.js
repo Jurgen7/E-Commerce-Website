@@ -67,11 +67,10 @@ function addCookieItem(productId, action){
 	location.reload()
 }
 
-
 // SIZE
 
-const selectedSize = localStorage.getItem('selectedSize');
-document.getElementById('selected-size').textContent = selectedSize;
+// const selectedSize = localStorage.getItem('selectedSize');
+// document.getElementById('selected-size').textContent = selectedSize;
 
 
 
