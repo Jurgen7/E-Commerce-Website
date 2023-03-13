@@ -30,7 +30,7 @@ def cookieCart(request):
 				item = {
 				'product_id':product.product_id,
 				'product':{'product_id':product.product_id,'product_name':product.product_name, 'product_price':product.product_price, 
-				'product_image':product.product_image}, 'quantity':cart[i]['quantity'],
+				'product_image':product.product_image, 'product_color':product.product_color, 'product_size':product.product_size}, 'quantity':cart[i]['quantity'],
 				}
 				items.append(item)
 
