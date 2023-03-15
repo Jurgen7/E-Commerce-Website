@@ -1,6 +1,6 @@
 # Ecommerce-Store
-E-commerce website built in both Frontend and Backend.
+E-commerce website built from both Frontend and Backend.
 
-From the frontend side I have used: HTML, CSS, JavaScript and jQuery.
+For the frontend side I have used: HTML, CSS, JavaScript and jQuery.
 
-From the backend side I have used: Python/Django.
+For the backend side I have used: Python/Django.
