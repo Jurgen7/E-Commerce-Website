@@ -1,5 +1,4 @@
 # E-Commerce-Website
-E-commerce website built in both Frontend and Backend.
 
 For the frontend side I have used: HTML, CSS, JavaScript, Bootstrap and jQuery.
 
